@@ -1,0 +1,16 @@
+* tmux-capf.el
+
+~completion-at-point-functions~ for Emacs to completion workds in tmux panes.
+
+** Configuration
+#+begin_src elisp
+;; With straight and use-package
+(use-package tmux-capf
+  :commands tmux-capf
+  :straight (:host github :repo "theFool32/tmux-capf" :files ("*.el" "*.sh")))
+
+;; Add ~tmux-cpaf~ to ~completion-at-point-functions~ according to your needs
+(add-to-list 'completion-at-point-functions 'tmux-capf)
+#+end_src
+** Acknowledgements
+The shell script is from [[https://github.com/wellle/tmux-complete.vim][welle/tmux-complete.vim]].
