@@ -18,7 +18,7 @@
        end
        candidates
        :exclusive 'no
-       :company-kind (lambda (_) nil) ;;  TODO: which icons should be used?
+       :company-kind (lambda (_) (intern "tmux")) ;;  TODO: which icons should be used?
        ))))
 
 (provide 'tmux-capf)
