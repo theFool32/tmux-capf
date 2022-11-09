@@ -1,5 +1,7 @@
 ;; tmux-capf.el ;; -*- lexical-binding: t -*-
 
+(require 'cl-lib)
+
 
 (defvar capf-tmux--min-length 5)
 
