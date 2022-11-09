@@ -10,7 +10,7 @@
 
 (defun capf-tmux--parse-fields (line)
   (let ((fields (split-string line " " t)))
-    (destructuring-bind (session-id pane-id pane-active window-active) fields
+    (cl-destructuring-bind (session-id pane-id pane-active window-active) fields
       (make-tmux-pane :id pane-id
                       :session-id session-id
                       :pane-active pane-active
