@@ -67,9 +67,10 @@
 
 (defun capf-tmux--collect-candidates (panes)
   (cl-loop for pane in panes
-           unless (and
-                   (string-equal (tmux-pane-window-active pane) (tmux-pane-pane-active pane))
-                   (string-equal (tmux-pane-session-id pane) (capf-tmux--current-session)))
+           ;; Do not exclude the current pane
+           ;; unless (and
+           ;;         (string-equal (tmux-pane-window-active pane) (tmux-pane-pane-active pane))
+           ;;         (string-equal (tmux-pane-session-id pane) (capf-tmux--current-session)))
            append (capf-tmux--capture-pane pane)))
 
 (defun capf-tmux--filter-candidates (prefix candidates)
