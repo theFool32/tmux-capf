@@ -4,6 +4,7 @@
 
 
 (defvar capf-tmux--min-length 5)
+(defvar capf-tmux--report-error nil)
 
 (defsubst capf-tmux--in-tmux-p ()
   (or (getenv "TMUX") (getenv "TMUX_PANE")))
@@ -109,8 +110,10 @@
            (candidates
             (condition-case ex
                 (capf-tmux--candidates prefix)
-              ('error (message (format "Tmux exception: [%s]" ex))
-                      nil))))
+              ('error
+               (when capf-tmux--report-error
+                 (message (format "Tmux exception: [%s]" ex)))
+               nil))))
       (list
        start
        end
