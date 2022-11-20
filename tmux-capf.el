@@ -106,7 +106,11 @@
            (prefix (if (and start end)
                        (buffer-substring-no-properties start end)
                      ""))
-           (candidates (capf-tmux--candidates prefix)))
+           (candidates
+            (condition-case ex
+                (capf-tmux--candidates prefix)
+              ('error (message (format "Tmux exception: [%s]" ex))
+                      nil))))
       (list
        start
        end
